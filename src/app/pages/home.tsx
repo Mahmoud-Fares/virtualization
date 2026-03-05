@@ -1,38 +1,23 @@
-import { Virtuoso } from 'react-virtuoso';
-
-import { BestComponent } from '@/shared/components/best-component';
 import { ColumnWrapper } from '@/shared/components/column-wrapper';
 import { ComparisonLayout } from '@/shared/components/comparison-layout';
-import { WorstComponent } from '@/shared/components/worst-component';
-import { useVirtualization } from '@/shared/providers/virtualization-provider';
+
+import { VirtuosoBest } from '@/features/virtuoso/best';
+import { VirtuosoDemo } from '@/features/virtuoso/demo';
+import { VirtuosoWorst } from '@/features/virtuoso/worst';
 
 export default function Home() {
-   const { array } = useVirtualization();
-
    return (
       <ComparisonLayout>
          <ColumnWrapper title='Demo'>
-            <Virtuoso
-               totalCount={array.length}
-               itemContent={(index) => <div>Item {index}</div>}
-               className='rounded-md border'
-            />
+            <VirtuosoDemo />
          </ColumnWrapper>
 
          <ColumnWrapper title='Best Case'>
-            <Virtuoso
-               totalCount={array.length}
-               itemContent={() => <BestComponent />}
-               className='rounded-md border'
-            />
+            <VirtuosoBest />
          </ColumnWrapper>
 
          <ColumnWrapper title='Worst Case'>
-            <Virtuoso
-               totalCount={array.length}
-               itemContent={() => <WorstComponent />}
-               className='rounded-md border'
-            />
+            <VirtuosoWorst />
          </ColumnWrapper>
       </ComparisonLayout>
    );
