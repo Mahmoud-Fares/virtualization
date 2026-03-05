@@ -1,5 +1,7 @@
 import { Outlet, ScrollRestoration } from 'react-router-dom';
 
+import { SolutionsNavigator } from '@/shared/components/solutions-navigator';
+
 type Props = {
    children?: React.ReactNode;
 };
@@ -9,10 +11,14 @@ export default function MainLayout({ children }: Props) {
       <>
          <ScrollRestoration />
 
-         <div className='flex min-h-screen flex-col'>
-            <div className='flex-1'>
-               <main>{children ?? <Outlet />}</main>
+         <div className='flex h-screen flex-col'>
+            <div className='flex justify-center gap-2 border-b p-2'>
+               <SolutionsNavigator />
             </div>
+
+            <main className='flex flex-1 flex-col'>
+               {children ?? <Outlet />}
+            </main>
          </div>
       </>
    );

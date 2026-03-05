@@ -19,7 +19,7 @@ export function TanstackWorst() {
    });
 
    return (
-      <div ref={parentRef} className='h-[90vh] overflow-auto rounded-md border'>
+      <div ref={parentRef} className='h-[85vh] overflow-auto rounded-md border'>
          <div
             style={{
                height: `${rowVirtualizer.getTotalSize()}px`,
