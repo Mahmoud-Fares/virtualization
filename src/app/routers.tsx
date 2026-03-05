@@ -9,6 +9,7 @@ const ProtectedLayout = lazy(() => import('@/app/layouts/protected-layout'));
 const AuthLayout = lazy(() => import('@/app/layouts/auth-layout'));
 
 const Home = lazy(() => import('@/app/pages/home'));
+const Tanstack = lazy(() => import('@/app/pages/tanstack'));
 
 const NotFound = lazy(() => import('@/app/pages/not-found'));
 
@@ -19,6 +20,7 @@ export const router = createBrowserRouter([
       errorElement: <ErrorBoundary />,
       children: [
          { index: true, element: <Home /> },
+         { path: 'tanstack', element: <Tanstack /> },
          { path: '*', element: <NotFound /> },
       ],
    },
