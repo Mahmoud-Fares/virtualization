@@ -3,13 +3,16 @@ import { useRef } from 'react';
 import { useVirtualizer } from '@tanstack/react-virtual';
 
 import { WorstComponent } from '@/shared/components/worst-component';
+import { useVirtualization } from '@/shared/providers/virtualization-provider';
 
 export function TanstackWorst() {
    const parentRef = useRef(null);
 
+   const { array } = useVirtualization();
+
    // eslint-disable-next-line react-hooks/incompatible-library
    const rowVirtualizer = useVirtualizer({
-      count: 5000,
+      count: array.length,
       getScrollElement: () => parentRef.current,
       estimateSize: () => 60,
       overscan: 5,

@@ -4,9 +4,10 @@ import { BestComponent } from '@/shared/components/best-component';
 import { ColumnWrapper } from '@/shared/components/column-wrapper';
 import { ComparisonLayout } from '@/shared/components/comparison-layout';
 import { WorstComponent } from '@/shared/components/worst-component';
+import { useVirtualization } from '@/shared/providers/virtualization-provider';
 
 export default function Home() {
-   const array = Array.from({ length: 5000 });
+   const { array } = useVirtualization();
 
    return (
       <ComparisonLayout>
